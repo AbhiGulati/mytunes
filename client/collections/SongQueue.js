@@ -11,6 +11,10 @@ var SongQueue = Songs.extend({
         this.playFirst();
       }
     });
+
+    this.on('ended', function(song) {
+      this.remove(song);
+    });
   },
 
   playFirst: function() {
