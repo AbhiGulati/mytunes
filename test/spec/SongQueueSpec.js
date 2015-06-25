@@ -38,8 +38,9 @@ describe('SongQueue', function() {
   });
 
   describe('when a song ends', function() {
-    xit('removes the song from the queue', function() {
+    it('removes the song from the queue', function() {
       var songQueue = new SongQueue([songData1, songData2]);
+      song1 = songQueue.at(0);
       song2 = songQueue.at(1);
       expect(songQueue.length).to.equal(2);
       songQueue.at(0).trigger('ended');
@@ -65,7 +66,7 @@ describe('SongQueue', function() {
   });
 
   describe('when a song is dequeued', function() {
-    xit('removes the song', function() {
+    it('removes the song', function() {
       removeSpy = sinon.spy(SongQueue.prototype, 'remove');
       var songQueue = new SongQueue(songData1);
       songQueue.at(0).dequeue();
